@@ -1,0 +1,15 @@
+class AddDigits{
+public static int Twosum(int num){
+           if(num == 0){
+              return 0;
+           }
+
+return (num%9 == 0)?9:num%9;
+}
+
+publi static void main(String[] args){
+
+int num = 9;
+Sysyem.out.println(Twosum(num));
+}
+}
