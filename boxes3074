@@ -1,0 +1,39 @@
+import java.util.Arrays;
+
+class Solution {
+    public int minimumBoxes(int[] apple, int[] capacity) {
+        int totalApples = 0;
+
+        // Step 1: sum apples
+        for (int a : apple) {
+            totalApples += a;
+        }
+
+        // Step 2: sort capacities
+        Arrays.sort(capacity);
+
+        int boxesUsed = 0;
+
+        // Step 3: take boxes from largest capacity
+        for (int i = capacity.length - 1; i >= 0; i--) {
+            totalApples -= capacity[i];
+            boxesUsed++;
+
+            // Step 4: stop when all apples are stored
+            if (totalApples <= 0) {
+                break;
+            }
+        }
+
+        return boxesUsed;
+    }
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+
+        int[] apple = {1, 3, 2};
+        int[] capacity = {4, 3, 1, 5};
+
+        int result = sol.minimumBoxes(apple, capacity);
+        System.out.println("Minimum boxes needed: " + result);
+    }
+}
