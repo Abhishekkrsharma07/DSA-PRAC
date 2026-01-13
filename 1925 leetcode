@@ -17,7 +17,8 @@ class Main {
 
                 if (sum < target) {
                     // all values between left and right form valid triplets
-                    count += right - left;
+                    count += right - left;        
+
                     left++;
                 } else {
                     right--;
